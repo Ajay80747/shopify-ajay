@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to ShopMix</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #3f51b5;
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+    header {
+      padding: 50px 0 20px;
+      text-align: center;
+      background: #3f51b5;
+      color: white;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    .main-content {
+      text-align: center;
+      padding: 30px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .intro-section {
+      background: #fff;
+      margin: 30px auto;
+      max-width: 900px;
+      padding: 30px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+
+    .intro-section h2 {
+      color: #3f51b5;
+      margin-bottom: 10px;
+    }
+
+    .intro-section p {
+      font-size: 1.1em;
+      color: #333;
+    }
+
+    .intro-section button {
+      background-color: #3f51b5;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s;
+    }
+
+    .intro-section button:hover {
+      background-color: #303f9f;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #3f51b5;
+      color: white;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2em;
+      }
+
+      .intro-section {
+        padding: 20px;
+      }
+
+      nav a {
+        margin: 0 8px;
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart</a>
+      <a href="orders.html">Orders</a>
+      <a href="faq.html">FAQs</a>
+      <a href="logout.html">Logout</a>
+    </nav>
+    <h1>Welcome to ShopMix</h1>
+    <p>Your favorite online shopping destination</p>
+  </header>
+
+  <div class="main-content">
+    <section class="intro-section">
+      <h2>Welcome to ShopMix</h2>
+      <p>We offer a wide range of products, including electronics, fashion, home appliances, and much more! Enjoy amazing discounts and a seamless shopping experience.</p>
+    </section>
+
+    <section class="intro-section">
+      <h2>Shop the Best Deals</h2>
+      <p>From latest gadgets to trendy fashion, ShopMix has everything you need. Start shopping now and get exclusive offers on selected products.</p>
+      <button onclick="window.location.href='products.html'">Start Shopping</button>
+    </section>
+  </div>
+
+  <footer>
+    &copy; 2025 ShopMix. All rights reserved.
+  </footer>
+
+  <script src="static/js/main.js"></script>
+</body>
+</html>

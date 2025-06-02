@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Products - ShopMix</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+<body>
+  <nav>
+    <a href="inex.html">Home</a>
+    <a href="login.html">Login</a>
+    <a href="register.html">Register</a>
+    <a href="products.html">Products</a>
+    <a href="cart.html">Cart</a>
+    <a href="orders.html">Orders</a>
+    <a href="faq.html">FAQ</a>
+  </nav>
+  <main class="container fade-in">
+    <h1>Our Products</h1>
+    <div class="product-list">
+      {% for product in products %}
+        <div class="product-item" data-category="{{ product['category'] | default('general') }}">
+          <img src="{{ product['image_url'] }}" alt="{{ product['name'] }}" loading="lazy" />
+          <h3>{{ product['name'] }}</h3>
+          <p class="price">₹{{ product['price'] }}</p>
+          <button onclick="addToCart('{{ product['id'] }}')">Add to Cart</button>
+        </div>
+      {% else %}
+        <p>No products available at the moment.</p>
+      {% endfor %}
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 ShopMix. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

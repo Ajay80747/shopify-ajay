@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wishlist - ShopMix</title>
+  <!-- ✅ FIXED 'rel' attribute (was 'stylesheets') -->
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="logo">ShopMix</div>
+    <nav class="navbar">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart</a>
+      <a href="orders.html">Orders</a>
+      <a href="logout.html">Logout</a>
+    </nav>
+  </header>
+
+  <section class="wishlist-section">
+    <h2>Your Wishlist</h2>
+    <div class="product-grid">
+      <!-- Wishlist Item 1 -->
+      <div class="product-card">
+        <img src="/static/images/product3.jpg" alt="NoiseFit Smartwatch" />
+        <h3>NoiseFit Smartwatch</h3>
+        <p>$69 <span class="old-price">$99</span></p>
+        <div class="product-actions">
+          <button class="btn">Add to Cart</button>
+          <button class="btn btn-danger">Remove</button>
+        </div>
+      </div>
+      <!-- Wishlist Item 2 -->
+      <div class="product-card">
+        <img src="/static/images/product4.jpg" alt="Bluetooth Speaker" />
+        <h3>Bluetooth Speaker</h3>
+        <p>$45 <span class="old-price">$60</span></p>
+        <div class="product-actions">
+          <button class="btn">Add to Cart</button>
+          <button class="btn btn-danger">Remove</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 ShopMix. All rights reserved.</p>
+  </footer>
+</body>
+</html>

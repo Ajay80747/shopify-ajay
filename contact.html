@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - ShopMix</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f1f1f1;
+    }
+
+    nav {
+      background-color: #3f51b5;
+      padding: 12px;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffeb3b;
+    }
+
+    .contact-container {
+      max-width: 900px;
+      margin: 60px auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      padding: 40px;
+    }
+
+    .contact-container h2 {
+      text-align: center;
+      color: #3f51b5;
+      margin-bottom: 30px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .info-box {
+      flex: 1;
+      margin: 20px;
+    }
+
+    .info-box h4 {
+      margin-bottom: 10px;
+      color: #ff5722;
+    }
+
+    .contact-form {
+      margin-top: 30px;
+    }
+
+    .contact-form h3 {
+      margin-bottom: 20px;
+      color: #3f51b5;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 12px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    .contact-form button {
+      background: #3f51b5;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background: #283593;
+    }
+
+    footer {
+      background-color: #3f51b5;
+      color: white;
+      text-align: center;
+      padding: 12px 0;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/products">Products</a>
+    <a href="/cart">Cart</a>
+    <a href="/orders">Orders</a>
+    <a href="/faq">FAQs</a>
+    <a href="/contact">Contact</a>
+    <a href="/logout">Logout</a>
+  </nav>
+</header>
+
+<section class="contact-container">
+  <h2>Contact Us</h2>
+  
+  <div class="contact-info">
+    <div class="info-box">
+      <h4>📍 Address</h4>
+      <p>ShopMix Pvt Ltd,<br> 4th Floor, City Center Mall,<br> Hyderabad, Telangana - 500081</p>
+    </div>
+    <div class="info-box">
+      <h4>📞 Phone</h4>
+      <p>+91 9876543210<br>+91 9123456789</p>
+    </div>
+    <div class="info-box">
+      <h4>📧 Email</h4>
+      <p>support@shopmix.com<br>help@shopmix.com</p>
+    </div>
+  </div>
+
+  <form class="contact-form" method="POST" action="/send_message">
+    <h3>Send Us a Message</h3>
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" rows="5" placeholder="Your Message..." required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<footer>
+  <p>&copy; 2025 ShopMix. All Rights Reserved.</p>
+</footer>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShopMix - Checkout</title>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      text-align: center;
+      padding: 50px;
+    }
+    h2 {
+      color: #333;
+    }
+    button {
+      background-color: #00bcd4;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0097a7;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Checkout Page 🛒</h2>
+  <p>Total Amount: ₹{{ total_amount }}</p>
+  <button onclick="startPayment()">Pay with Razorpay</button>
+
+  <script>
+    async function startPayment() {
+      const response = await fetch("/create_order", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ amount: {{ total_amount }} })  // send dynamic amount
+      });
+
+      const order = await response.json();
+
+      const options = {
+        "key": "{{ key_id }}",
+        "amount": order.amount,
+        "currency": "INR",
+        "name": "ShopMix Store",
+        "description": "Order Payment",
+        "order_id": order.id,
+        "handler": function (response) {
+          alert("✅ Payment Successful!\nPayment ID: " + response.razorpay_payment_id);
+
+          // Optional: Send payment info to Flask
+          fetch('/payment_success', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(response)
+          });
+        },
+        "prefill": {
+          "name": "Ajay",
+          "email": "ajay@example.com",
+          "contact": "9999999999"
+        },
+        "theme": {
+          "color": "#00bcd4"
+        }
+      };
+
+      const rzp = new Razorpay(options);
+      rzp.open();
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Orders - ShopMix</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0; padding: 0;
+    }
+    header nav {
+      background: #3f51b5;
+      padding: 12px 20px;
+      text-align: center;
+    }
+    header nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    header nav a:hover {
+      color: #ffeb3b;
+    }
+    .order-history {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+    .order-history h2 {
+      text-align: center;
+      color: #3f51b5;
+      margin-bottom: 30px;
+    }
+    .order-item {
+      border-bottom: 1px solid #ddd;
+      padding: 20px 0;
+    }
+    .order-item:last-child {
+      border-bottom: none;
+    }
+    .order-item h3 {
+      color: #ff5722;
+      margin-bottom: 10px;
+    }
+    .order-item p {
+      margin: 6px 0;
+      font-size: 16px;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #3f51b5;
+      color: white;
+      padding: 8px 15px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      text-decoration: none;
+      margin-top: 10px;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background-color: #283593;
+    }
+    .return-option {
+      margin-top: 15px;
+    }
+    .return-option label {
+      margin-right: 10px;
+      font-weight: 600;
+    }
+    select[name="return-reason"] {
+      padding: 6px 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/cart">Cart</a>
+      <a href="/orders">Order History</a>
+      <a href="/logout">Logout</a>
+    </nav>
+  </header>
+
+  <section class="order-history">
+    <h2>Your Order History</h2>
+    <div class="order-list">
+
+      <!-- Example order item -->
+      <div class="order-item">
+        <h3>Order #12345</h3>
+        <p><strong>Date:</strong> January 1, 2025</p>
+        <p><strong>Status:</strong> Delivered</p>
+        <p><strong>Total Amount:</strong> ₹200.00</p>
+        <a href="/invoice/12345" class="btn" download>Download Invoice</a>
+        
+        <form class="return-option" action="/request_return" method="POST">
+          <input type="hidden" name="order_id" value="12345" />
+          <label for="return-reason-12345">Return Reason:</label>
+          <select id="return-reason-12345" name="return_reason" required>
+            <option value="" disabled selected>Select reason</option>
+            <option value="damaged">Damaged Item</option>
+            <option value="wrong-item">Wrong Item Delivered</option>
+            <option value="other">Other</option>
+          </select>
+          <button type="submit" class="btn">Request Return</button>
+        </form>
+      </div>
+
+      <!-- You can dynamically add more orders here -->
+
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 ShopMix. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>

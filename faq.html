@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FAQs - ShopMix</title>
+  <link rel="stylesheets" href="styles.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color:rgb(202, 54, 91);
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color:rgb(28, 235, 93);
+    }
+
+    .faq-section {
+      max-width: 900px;
+      margin: 50px auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.83);
+      padding: 30px;
+    }
+
+    .faq-section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #3f51b5;
+      animation: fadeIn 1s ease;
+    }
+
+    .faq {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 15px;
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    .faq-question {
+      font-weight: bold;
+      font-size: 18px;
+      cursor: pointer;
+      position: relative;
+      padding-right: 25px;
+    }
+
+    .faq-question::after {
+      content: '+';
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-size: 24px;
+      color:rgb(160, 26, 162);
+    }
+
+    .faq.active .faq-question::after {
+      content: '-';
+    }
+
+    .faq-answer {
+      display: none;
+      padding-top: 10px;
+      color: #555;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .faq.active .faq-answer {
+      display: block;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color:rgb(12, 106, 14);
+      color: white;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(-20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/products">Products</a>
+      <a href="/cart">Cart</a>
+      <a href="/orders">Orders</a>
+      <a href="/faq">FAQs</a>
+      <a href="/logout">Logout</a>
+    </nav>
+  </header>
+
+  <section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq">
+      <div class="faq-question">What is ShopMix?</div>
+      <div class="faq-answer">ShopMix is an online platform offering a wide range of products including electronics, fashion, home appliances and more — all at amazing discounts!</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">How can I place an order?</div>
+      <div class="faq-answer">Simply browse through the products, click "Add to Cart", then proceed to checkout to place your order securely.</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">What are the payment options?</div>
+      <div class="faq-answer">We accept Razorpay, UPI, Credit/Debit Cards, Net Banking and Cash on Delivery (COD in select areas).</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">How do I track my order?</div>
+      <div class="faq-answer">After logging in, go to the "Orders" section to view real-time status and details of your purchases.</div>
+    </div>
+
+    <div class="faq">
+      <div class="faq-question">What is the return/refund policy?</div>
+      <div class="faq-answer">We offer a 7-day hassle-free return on most products. Refunds are processed within 3–5 business days after pickup and verification.</div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 ShopMix. All rights reserved.
+  </footer>
+
+  <!-- JavaScript for FAQ toggling -->
+  <script>
+    document.querySelectorAll('.faq-question').forEach(item => {
+      item.addEventListener('click', () => {
+        item.parentElement.classList.toggle('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
